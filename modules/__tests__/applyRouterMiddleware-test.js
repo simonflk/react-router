@@ -1,4 +1,5 @@
 import expect from 'expect'
+import PropTypes from 'prop-types'
 import React, { cloneElement } from 'react'
 import { render } from 'react-dom'
 import Router from '../Router'
@@ -11,24 +12,26 @@ const FOO_ROOT_CONTAINER_TEXT = 'FOO ROOT CONTAINER'
 const BAR_ROOT_CONTAINER_TEXT = 'BAR ROOT CONTAINER'
 const BAZ_CONTAINER_TEXT = 'BAZ INJECTED'
 
-const FooRootContainer = React.createClass({
-  propTypes: { children: React.PropTypes.node.isRequired },
-  childContextTypes: { foo: React.PropTypes.string },
-  getChildContext() { return { foo: FOO_ROOT_CONTAINER_TEXT } },
+class FooRootContainer extends React.Component {
+  static propTypes = { children: PropTypes.node.isRequired };
+  static childContextTypes = { foo: PropTypes.string };
+  getChildContext() { return { foo: FOO_ROOT_CONTAINER_TEXT } }
+
   render() {
     return this.props.children
   }
-})
+}
 
-const FooContainer = React.createClass({
-  propTypes: { children: React.PropTypes.node.isRequired },
-  contextTypes: { foo: React.PropTypes.string.isRequired },
+class FooContainer extends React.Component {
+  static propTypes = { children: PropTypes.node.isRequired };
+  static contextTypes = { foo: PropTypes.string.isRequired };
+
   render() {
     const { children, ...props } = this.props
     const fooFromContext = this.context.foo
     return cloneElement(children, { ...props, fooFromContext })
   }
-})
+}
 
 const useFoo = () => ({
   renderRouterContext: (child) => (
@@ -39,24 +42,26 @@ const useFoo = () => ({
   )
 })
 
-const BarRootContainer = React.createClass({
-  propTypes: { children: React.PropTypes.node.isRequired },
-  childContextTypes: { bar: React.PropTypes.string },
-  getChildContext() { return { bar: BAR_ROOT_CONTAINER_TEXT } },
+class BarRootContainer extends React.Component {
+  static propTypes = { children: PropTypes.node.isRequired };
+  static childContextTypes = { bar: PropTypes.string };
+  getChildContext() { return { bar: BAR_ROOT_CONTAINER_TEXT } }
+
   render() {
     return this.props.children
   }
-})
+}
 
-const BarContainer = React.createClass({
-  propTypes: { children: React.PropTypes.node.isRequired },
-  contextTypes: { bar: React.PropTypes.string.isRequired },
+class BarContainer extends React.Component {
+  static propTypes = { children: PropTypes.node.isRequired };
+  static contextTypes = { bar: PropTypes.string.isRequired };
+
   render() {
     const { children, ...props } = this.props
     const barFromContext = this.context.bar
     return cloneElement(children, { ...props, barFromContext })
   }
-})
+}
 
 const useBar = () => ({
   renderRouterContext: (child) => (
