@@ -30,7 +30,7 @@ export default function withRouter(WrappedComponent, options) {
         args[_key] = arguments[_key];
       }
 
-      return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.getWrappedInstance = function () {
+      return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {}, _this.getWrappedInstance = function () {
         !withRef ? process.env.NODE_ENV !== 'production' ? invariant(false, 'To access the wrapped instance, you need to specify ' + '`{ withRef: true }` as the second argument of the withRouter() call.') : invariant(false) : void 0;
 
         return _this.wrappedInstance;

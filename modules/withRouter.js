@@ -14,6 +14,8 @@ export default function withRouter(WrappedComponent, options) {
     static contextTypes = { router: routerShape };
     static propTypes = { router: routerShape };
 
+    state = {};
+
     getWrappedInstance = () => {
       invariant(
         withRef,
