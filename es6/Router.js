@@ -109,7 +109,7 @@ var Router = function (_React$Component) {
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  Router.prototype.componentWillMount = function componentWillMount() {
+  Router.prototype.UNSAFE_componentWillMount = function UNSAFE_componentWillMount() {
     var _this2 = this;
 
     var _props = this.props,
@@ -136,7 +136,7 @@ var Router = function (_React$Component) {
   };
 
   /* istanbul ignore next: sanity check */
-  Router.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+  Router.prototype.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(nextProps) {
     process.env.NODE_ENV !== 'production' ? warning(nextProps.history === this.props.history, 'You cannot change <Router history>; it will be ignored') : void 0;
 
     process.env.NODE_ENV !== 'production' ? warning((nextProps.routes || nextProps.children) === (this.props.routes || this.props.children), 'You cannot change <Router routes>; it will be ignored') : void 0;

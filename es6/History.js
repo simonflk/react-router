@@ -10,7 +10,7 @@ var History = {
     history: history
   },
 
-  componentWillMount: function componentWillMount() {
+  UNSAFE_componentWillMount: function UNSAFE_componentWillMount() {
     process.env.NODE_ENV !== 'production' ? warning(false, 'the `History` mixin is deprecated, please access `context.router` with your own `contextTypes`. http://tiny.cc/router-historymixin') : void 0;
     this.history = this.context.history;
   }

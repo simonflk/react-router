@@ -15,7 +15,7 @@ const App = React.createClass({
     }
   },
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     ContactStore.init()
   },
 
@@ -84,7 +84,7 @@ const Contact = withRouter(
       ContactStore.removeChangeListener(this.updateContact)
     },
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
       this.setState(this.getStateFromStore(nextProps))
     },
 

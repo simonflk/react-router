@@ -31,7 +31,7 @@ describe('v1 History Mixin', function () {
       displayName: 'Component',
       mixins: [ History ],
 
-      componentWillMount() {
+      UNSAFE_componentWillMount() {
         expect(this.history).toExist()
       },
 
