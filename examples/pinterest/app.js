@@ -35,7 +35,7 @@ const Modal = React.createClass({
 
 const App = React.createClass({
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     // if we changed routes...
     if ((
       nextProps.location.key !== this.props.location.key &&

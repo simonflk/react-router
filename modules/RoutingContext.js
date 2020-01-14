@@ -3,7 +3,7 @@ import RouterContext from './RouterContext'
 import warning from './routerWarning'
 
 class RoutingContext extends React.Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     warning(false, '`RoutingContext` has been renamed to `RouterContext`. Please use `import { RouterContext } from \'react-router\'`. http://tiny.cc/router-routercontext')
   }
 
